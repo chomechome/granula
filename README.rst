@@ -26,8 +26,7 @@ Features
 
 - Gathers configurations from multiple files or directories.
 - Supports widely used file formats (YAML, JSON).
-- Offers a small DSL that allows to load environment variables into config
-files.
+- Offers a small DSL that allows to load environment variables into config files.
 - Manages different configuration environments (e.g. testing, production).
 
 Usage
