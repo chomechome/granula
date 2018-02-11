@@ -1,0 +1,10 @@
+{
+  "list": [
+    ${env ONE},
+    ${env TWO|val "two"}
+  ],
+  "default": 42,
+  "parameters": {
+    "nested": "value"
+  }
+}

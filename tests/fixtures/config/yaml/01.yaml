@@ -1,0 +1,4 @@
+parameters:
+  default: 42
+  nested: value
+  environment: ${env VARIABLE}

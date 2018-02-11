@@ -1,0 +1,3 @@
+NEW=value
+DEFAULT=extended
+REFERENCE=${ref MISS}

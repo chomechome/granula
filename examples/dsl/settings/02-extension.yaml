@@ -1,0 +1,2 @@
+config:
+  reference: ${ref config variable}

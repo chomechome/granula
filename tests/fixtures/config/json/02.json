@@ -1,0 +1,8 @@
+{
+  "default": 15,
+  "parameters": {
+    "nested": "extended",
+    "reference": ${ref parameters nested|val 10},
+    "variable": ${env NONEXISTING|env SECRET}
+  }
+}

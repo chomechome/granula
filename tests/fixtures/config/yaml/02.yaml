@@ -1,0 +1,8 @@
+parameters:
+  nested: extended
+  reference: ${ref parameters nested}
+  default: ${env NONEXISTENT|val 10}
+new: value
+list:
+  - ${env FIRST}
+  - ${env SECOND|val 'string'}
