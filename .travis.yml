@@ -7,9 +7,10 @@ python:
   - "3.6"
 
 install:
-  - "pipenv install --dev"
+  - "pip install pipenv --upgrade"
+  - "pipenv install --dev --skip-lock"
   - "pip install -U -e ."
 
 script:
-  - "pipenv run pytest tests"
+  - "pipenv run pytest tests --junitxml=report.xml"
   - "pipenv run flake8"
