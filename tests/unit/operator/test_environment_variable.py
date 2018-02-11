@@ -11,9 +11,10 @@ from tests.utils import replace_environment, remove_from_environment
 
 @hypothesis.given(CONFIG, WORD, TEXT)
 def test_environment_variable(config, name, value):
+    value = value.replace(u'\0', u'\\0')
     if six.PY2:
-        # python2 environ does not allow null bytes and unicode values
-        value = value.replace(u'\0', u'\\0').encode('utf8')
+        # python2 environ does not allow unicode values
+        value = value.encode('utf8')
 
     with replace_environment(variables={name: value}):
         assert EnvironmentVariable(name).apply(config) == value
