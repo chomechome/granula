@@ -7,11 +7,16 @@ import shutil
 import setuptools
 
 PACKAGE = 'granula'
+ROOT = os.path.dirname(os.path.abspath(__file__))
+
+
+def get_path(filename):
+    return os.path.join(ROOT, filename)
 
 
 def get_version():
     pattern = re.compile(r'__version__\s*=\s*\'(?P<version>\d+\.\d+\.\d+)\'')
-    with codecs.open('{}/__init__.py'.format(PACKAGE)) as f:
+    with codecs.open(get_path('{}/__init__.py'.format(PACKAGE))) as f:
         match = pattern.search(f.read())
         if match is not None:
             return match.group('version')
@@ -20,14 +25,14 @@ def get_version():
 
 
 def get_description():
-    with codecs.open('README.rst', encoding='utf-8') as f:
+    with codecs.open(get_path('README.rst'), encoding='utf-8') as f:
         return '\n' + f.read()
 
 
 def get_requirements():
     requirements = []
 
-    with codecs.open('requirements.txt', encoding='utf-8') as f:
+    with codecs.open(get_path('requirements.txt'), encoding='utf-8') as f:
         for requirement in f:
             if '#' in requirement:
                 requirement, _, _ = requirement.partition('#')
