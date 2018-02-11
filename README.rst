@@ -17,7 +17,7 @@ Installation
 
     $ pipenv install granula
 
-or just use ``pip`` (though you should definitely take a look at `pipenv <http://pipenv.readthedocs.io/en/latest/>`)
+or just use ``pip`` (though you should definitely take a look at `pipenv <http://pipenv.readthedocs.io/en/latest/>`_)
 
 🌈🌈🌈
 
