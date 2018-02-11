@@ -10,7 +10,7 @@ PACKAGE = 'granula'
 
 
 def get_version():
-    pattern = re.compile(r'__version__\s*=\s*(?P<version>\'\d+\.\d+\.\d+\')')
+    pattern = re.compile(r'__version__\s*=\s*\'(?P<version>\d+\.\d+\.\d+)\'')
     with codecs.open('{}/__init__.py'.format(PACKAGE)) as f:
         match = pattern.search(f.read())
         if match is not None:
