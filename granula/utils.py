@@ -36,8 +36,8 @@ def merge(source, target):
     :type target: collections.MutableMapping
     """
     for key, value in six.iteritems(source):
-        if (isinstance(target.get(key), collections.MutableMapping)
-                and isinstance(value, collections.Mapping)):
+        if (isinstance(target.get(key), collections.MutableMapping) and
+                isinstance(value, collections.Mapping)):
             merge(source=value, target=target[key])
         else:
             target[key] = value

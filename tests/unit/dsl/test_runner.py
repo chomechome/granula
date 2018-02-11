@@ -28,5 +28,7 @@ def test_fail(operator_count, config, message):
 
 
 def test_no_dsl_operators():
-    with assert_raises_dsl_error(message=u'No DSL operators found', position=0):
+    message = u'No DSL operators found'
+
+    with assert_raises_dsl_error(message=message, position=0):
         run(operators=(), config={})

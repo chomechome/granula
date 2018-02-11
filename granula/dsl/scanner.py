@@ -77,6 +77,6 @@ def scan(source, position=0, breakpoint=r'$'):
     if position < len(source):
         msg = u'Unexpected symbol "{}"'.format(source[position])
     else:
-        msg = u'Expected to match regex pattern "{}"'.format(breakpoint.pattern)
+        msg = u'Expected to match regex "{}"'.format(breakpoint.pattern)
 
     raise DSLError(message=msg, position=position)
