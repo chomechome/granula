@@ -17,13 +17,13 @@ Installation
 
     $ pipenv install granula
 
-or, in a more familiar way to some (though you should take a look at `pipenv http://pipenv.readthedocs.io/en/latest/`)
+or, in a more familiar way to some (though you should take a look at `pipenv <http://pipenv.readthedocs.io/en/latest/>`)
 
     $ pip install granula
 
 🌈🌈🌈
 
-☤ Features
+Features
 ----------
 
 - Gathers configurations from multiple files or directories.
@@ -32,7 +32,7 @@ or, in a more familiar way to some (though you should take a look at `pipenv htt
 files.
 - Manages different configuration environments (e.g. testing, production).
 
-☤ Usage
+Usage
 -------
 
 .. code-block:: python
