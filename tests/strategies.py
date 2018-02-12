@@ -28,4 +28,4 @@ CONFIG = hypothesis.strategies.recursive(
     max_leaves=16,
 )
 
-WORD = hypothesis.strategies.from_regex(r'^[^\W\d_]\w{0, 31}(?!\n)$')
+WORD = hypothesis.strategies.from_regex(r'^[^\W\d_]\w{0,31}(?!\n)$')

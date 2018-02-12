@@ -3,7 +3,7 @@ import hypothesis
 hypothesis.settings.register_profile(
     name='exhaustive',
     settings=hypothesis.settings(
-        max_examples=1000,
+        max_examples=100,
         perform_health_check=False,
     ),
 )
