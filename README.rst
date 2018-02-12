@@ -1,16 +1,16 @@
 Granula: Multi-file Configurations for Python Applications
 ==============================================
 
-.. image:: https://img.shields.io/pypi/v/requests.svg
-    :target: https://pypi.python.org/pypi/requests
+.. image:: https://img.shields.io/pypi/v/granula.svg
+    :target: https://pypi.python.org/pypi/granula
     :alt: Package version
 
-.. image:: https://img.shields.io/pypi/l/requests.svg
-    :target: https://pypi.python.org/pypi/requests
+.. image:: https://img.shields.io/pypi/l/granula.svg
+    :target: https://pypi.python.org/pypi/granula
     :alt: Package license
 
-.. image:: https://img.shields.io/pypi/pyversions/requests.svg
-    :target: https://pypi.python.org/pypi/requests
+.. image:: https://img.shields.io/pypi/pyversions/granula.svg
+    :target: https://pypi.python.org/pypi/granula
     :alt: Python versions
 
 .. image:: https://travis-ci.org/chomechome/granula.svg?branch=master
