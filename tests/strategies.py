@@ -17,13 +17,15 @@ DATA = hypothesis.strategies.recursive(
         hypothesis.strategies.lists(children),
         hypothesis.strategies.dictionaries(keys=TEXT, values=children),
     ),
+    max_leaves=16,
 )
 CONFIG = hypothesis.strategies.recursive(
     base=DICTIONARY,
     extend=lambda children: hypothesis.strategies.dictionaries(
         keys=TEXT,
         values=children,
-    )
+    ),
+    max_leaves=16,
 )
 
 WORD = hypothesis.strategies.from_regex(r'^[^\W\d_]\w*(?!\n)$')
