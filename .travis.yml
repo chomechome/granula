@@ -9,8 +9,18 @@ python:
 install:
   - "pip install pipenv --upgrade"
   - "pipenv install --dev --skip-lock"
-  - "pip install -U -e ."
 
 script:
-  - "pipenv run pytest tests --hypothesis-profile=ci --junitxml=report.xml"
-  - "pipenv run flake8"
+  - "pipenv run pytest -n 8 --boxed --hypothesis-profile=exhaustive"
+
+jobs:
+  include:
+    - stage: linter
+      python: 3.6
+      script:
+        - "pipenv run flake8"
+    - stage: coverage
+      python: 3.6
+      script:
+        - "pipenv run pytest --cov=granula --hypothesis-profile=coverage"
+        - "pipenv run codecov"

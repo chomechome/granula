@@ -1,9 +1,25 @@
 Granula: Multi-file Configurations for Python Applications
 ==============================================
 
+.. image:: https://img.shields.io/pypi/v/requests.svg
+    :target: https://pypi.python.org/pypi/requests
+    :alt: Package version
+
+.. image:: https://img.shields.io/pypi/l/requests.svg
+    :target: https://pypi.python.org/pypi/requests
+    :alt: Package license
+
+.. image:: https://img.shields.io/pypi/pyversions/requests.svg
+    :target: https://pypi.python.org/pypi/requests
+    :alt: Python versions
+
 .. image:: https://travis-ci.org/chomechome/granula.svg?branch=master
     :target: https://travis-ci.org/chomechome/granula
     :alt: TravisCI status
+
+.. image:: https://codecov.io/github/chomechome/granula/coverage.svg?branch=master
+    :target: https://codecov.io/github/chomechome/granula
+    :alt: Code coverage
 
 ---------------
 

@@ -7,8 +7,11 @@ verify_ssl = true
 [dev-packages]
 
 pytest = "*"
+codecov = "*"
 hypothesis = "*"
 "flake8" = "*"
+"pytest-cov" = "*"
+"pytest-xdist" = "*"
 
 
 [packages]
