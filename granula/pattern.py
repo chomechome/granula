@@ -40,10 +40,6 @@ class Any(CompositeFilenamePattern):
     Match any of the underlying patterns
     """
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         return any(pattern.matches(filename) for pattern in self._patterns)
 
 
@@ -52,10 +48,6 @@ class All(CompositeFilenamePattern):
     Match all of the underlying patterns
     """
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         return all(pattern.matches(filename) for pattern in self._patterns)
 
 
@@ -76,10 +68,6 @@ class Inverse(IFilenamePattern):
         )
 
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         return not self._base.matches(filename)
 
 
@@ -111,10 +99,6 @@ class Environment(IFilenamePattern):
         )
 
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         stem, _ = os.path.splitext(filename)
         _, environment = os.path.splitext(stem)
         return not environment or self._name == environment.lstrip('.')
@@ -137,10 +121,6 @@ class Extension(IFilenamePattern):
         )
 
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         _, extension = os.path.splitext(filename)
         return self._extension == extension.lstrip('.')
 
@@ -162,10 +142,6 @@ class Wildcard(IFilenamePattern):
         )
 
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         return fnmatch.fnmatch(filename, self._pattern)
 
 
@@ -186,8 +162,4 @@ class Regex(IFilenamePattern):
         )
 
     def matches(self, filename):
-        """
-        :type filename: six.text_type
-        :rtype: bool
-        """
         return bool(self._pattern.match(filename))
