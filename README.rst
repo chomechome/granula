@@ -69,13 +69,13 @@ Do the same in a recursive manner:
 
     >> config = granula.Config.from_directory(..., recursive=True)
 
-Match YAML files only using extension pattern:
+Match YAML files using filename pattern:
 
 .. code-block:: python
 
     >> config = granula.Config.from_directory(..., pattern=granula.Extension('yaml'))
 
-Match YAML files only using shell-style wildcard pattern:
+Do the same with a shell-style wildcard pattern:
 
 .. code-block:: python
 
