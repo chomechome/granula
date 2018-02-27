@@ -85,14 +85,16 @@ Match configuration files for different environments:
 
 .. code-block:: python
 
-    >> testing = granula.Config.from_directory('examples/environments/settings', pattern=granula.Environment('testing'))
-    >> production = granula.Config.from_directory('examples/environments/settings', pattern=granula.Environment('production'))
+    >> directory = 'examples/environments/settings'
+    >> testing = granula.Config.from_directory(directory, pattern=granula.Environment('testing'))
+    >> production = granula.Config.from_directory(directory, pattern=granula.Environment('production'))
 
 Combine patterns in arbitrary ways:
 
 .. code-block:: python
 
-    >> config = granula.Config.from_directory(..., pattern=granula.All(granula.Environment('testing'), granula.Extension('yaml')))
+    >> pattern = granula.All(granula.Environment('testing'), granula.Extension('yaml'))
+    >> config = granula.Config.from_directory(..., pattern=pattern)
 
 Load environment variables into config files using a DSL, for example, in YAML:
 

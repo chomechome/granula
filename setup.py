@@ -56,6 +56,12 @@ class UploadCommand(setuptools.Command):
         """Prints things in bold."""
         print('\033[1m{0}\033[0m'.format(text))
 
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
     def run(self):
         self._print_status('Removing previous builds...')
         shutil.rmtree('dist', ignore_errors=True)
