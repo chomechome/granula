@@ -33,7 +33,7 @@ Installation
 
     $ pipenv install granula
 
-or just use ``pip`` (though you should definitely take a look at `pipenv <http://pipenv.readthedocs.io/en/latest/>`_)
+or just use pip (though you should definitely take a look at `pipenv <https://pipenv.readthedocs.io/en/latest/>`_)
 
 🌈🌈🌈
 
@@ -48,31 +48,60 @@ Features
 Usage
 -------
 
+Create a config object from a directory with multiple configuration files:
+
 .. code-block:: python
 
+    >> import granula
     >> config = granula.Config.from_directory('examples/multi-file/settings')
     >> config
     Config({'name': 'Darth Vader', ...})
     >> config.name
     'Darth Vader'
-    >> config.occupation
-    'sith lord'
     >> config.family
-    Config({'fiancee': 'Padme Amidala', 'children': ['Luke', 'Leia']})
+    Config({'fiancee': 'Padme Amidala', 'children': ['Luke Skywalker', 'Leia Organa']})
 
-where ``examples/multi-file/settings`` is a directory that contains multiple
-configuration files.
+Files are parsed in lexicographic order. The values specified in the preceding files can be overwritten in the succeeding files.
 
-``granula.Config.from_directory`` parses files in the lexicographic order.
-Every file is expected to contain a mapping. The values specified in the
-preceding files can be overwritten in the succeeding files
-(``config.name`` in the example above).
+Do the same in a recursive manner:
 
-``granula.Config.from_directory`` takes a ``pattern`` parameter which is used
-to match filenames. If a string is passed, it is considered to be a shell-style
-wildcard pattern. An object that implements ``granula.pattern.IFilenamePattern``
-can also be passed. See ``examples/environments/`` on how to manage
-configuration environments using ``pattern`` parameter.
+.. code-block:: python
 
-Also see ``examples/dsl/`` for examples on how to load environment variables in
-config files using ``granula`` DSL.
+    >> config = granula.Config.from_directory(..., recursive=True)
+
+Match YAML files only using extension pattern:
+
+.. code-block:: python
+
+    >> config = granula.Config.from_directory(..., pattern=granula.Extension('yaml'))
+
+Match YAML files only using shell-style wildcard pattern:
+
+.. code-block:: python
+
+    >> config = granula.Config.from_directory(..., pattern=granula.Wildcard('*.yaml'))
+
+Match configuration files for different environments:
+
+.. code-block:: python
+
+    >> testing = granula.Config.from_directory('examples/environments/settings', pattern=granula.Environment('testing'))
+    >> production = granula.Config.from_directory('examples/environments/settings', pattern=granula.Environment('production'))
+
+Combine patterns in arbitrary ways:
+
+.. code-block:: python
+
+    >> config = granula.Config.from_directory(..., pattern=granula.All(granula.Environment('testing'), granula.Extension('yaml')))
+
+Load environment variables into config files using a DSL, for example, in YAML:
+
+.. code-block::
+
+    variable: ${env VARIABLE}
+
+Do the same with a default value:
+
+.. code-block::
+
+    variable: ${env VARIABLE | val 10}

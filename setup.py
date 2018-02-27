@@ -44,16 +44,11 @@ def get_requirements():
     return requirements
 
 
-if sys.argv[-1] == "publish":
-    os.system("python setup.py sdist bdist_wheel upload")
-    sys.exit()
-
-
 class UploadCommand(setuptools.Command):
     """
-    Support setup.py publish.
+    Support setup.py upload
     """
-    description = 'Build and publish the package.'
+    description = 'Build the package and upload it to PyPI'
     user_options = []
 
     @staticmethod
@@ -61,24 +56,18 @@ class UploadCommand(setuptools.Command):
         """Prints things in bold."""
         print('\033[1m{0}\033[0m'.format(text))
 
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
     def run(self):
         self._print_status('Removing previous builds...')
         shutil.rmtree('dist', ignore_errors=True)
 
         self._print_status('Building source distribution...')
-        os.system('{0} setup.py sdist'.format(sys.executable))
+        os.system('{} setup.py sdist bdist_wheel'.format(sys.executable))
 
         self._print_status('Uploading the package to PyPi via Twine...')
         os.system('twine upload dist/*')
 
         self._print_status('Pushing git tags...')
-        os.system('git tag v{0}'.format(get_version()))
+        os.system('git tag v{}'.format(get_version()))
         os.system('git push --tags')
 
         sys.exit()

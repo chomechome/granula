@@ -15,7 +15,7 @@ script:
 
 jobs:
   include:
-    - stage: linter
+    - stage: codestyle
       python: 3.6
       script:
         - "pipenv run flake8"
