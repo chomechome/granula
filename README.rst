@@ -1,5 +1,5 @@
 Granula: Multi-file Configurations for Python Applications
-==============================================
+==========================================================
 
 .. image:: https://img.shields.io/pypi/v/granula.svg
     :target: https://pypi.python.org/pypi/granula
