@@ -53,7 +53,7 @@ Create a config object from a directory with multiple configuration files:
 .. code-block:: python
 
     >> import granula
-    >> config = granula.Config.from_directory('examples/multi-file/settings')
+    >> config = granula.from_directory('examples/multi-file/settings')
     >> config
     Config({'name': 'Darth Vader', ...})
     >> config.name
@@ -67,34 +67,34 @@ Do the same in a recursive manner:
 
 .. code-block:: python
 
-    >> config = granula.Config.from_directory(..., recursive=True)
+    >> config = granula.from_directory(..., recursive=True)
 
 Match YAML files using filename pattern:
 
 .. code-block:: python
 
-    >> config = granula.Config.from_directory(..., pattern=granula.Extension('yaml'))
+    >> config = granula.from_directory(..., pattern=granula.Extension('yaml'))
 
 Do the same with a shell-style wildcard pattern:
 
 .. code-block:: python
 
-    >> config = granula.Config.from_directory(..., pattern=granula.Wildcard('*.yaml'))
+    >> config = granula.from_directory(..., pattern=granula.Wildcard('*.yaml'))
 
 Match configuration files for different environments:
 
 .. code-block:: python
 
     >> directory = 'examples/environments/settings'
-    >> testing = granula.Config.from_directory(directory, pattern=granula.Environment('testing'))
-    >> production = granula.Config.from_directory(directory, pattern=granula.Environment('production'))
+    >> testing = granula.from_directory(directory, pattern=granula.Environment('testing'))
+    >> production = granula.from_directory(directory, pattern=granula.Environment('production'))
 
 Combine patterns in arbitrary ways:
 
 .. code-block:: python
 
     >> pattern = granula.All(granula.Environment('testing'), granula.Extension('yaml'))
-    >> config = granula.Config.from_directory(..., pattern=pattern)
+    >> config = granula.from_directory(..., pattern=pattern)
 
 Load environment variables into config files using a DSL, for example, in YAML:
 
