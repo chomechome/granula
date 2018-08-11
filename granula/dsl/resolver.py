@@ -13,7 +13,7 @@ from granula.serializer import ISerializer
 
 class DSLResolver(object):
     """
-    Processes a config file and resolves found DSL injections
+    Processes a config file and resolves DSL injections
     """
     def __init__(self, finder=None, operators=None):
         """
